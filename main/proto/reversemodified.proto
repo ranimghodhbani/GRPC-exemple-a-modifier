@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "io.grpc.examples.reverse";
+option java_outer_classname = "ReverseProto";
+option objc_class_prefix = "REV";
+
+package reverse;
+
+// The greeting service definition.
+service Reverse {
+  // Sends a message to reverse
+  rpc ReverseString (ReverseRequest) returns (ReverseReply) {}
+  // Sends another greeting
+  //rpc SayHelloAgain (HelloRequest) returns (HelloReply) {}
+}
+
+// The request message containing a simple message to reverse, along with additional information.
+message ReverseRequest {
+  string message = 1;
+  string name = 2 [default = "rania"]; // Default name
+  string firstName = 3 [default = "abderrazek"]; // Default first name
+  string cin = 4 [default = "12345678"]; // Default cin
+}
+
+// The response message containing the reversed message
+message ReverseReply {
+  string message = 1;
+}
